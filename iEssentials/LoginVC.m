@@ -68,7 +68,36 @@
     BOOL nonEmptyEmail = self.email.text.length > 0;
     BOOL nonEmptyPassword = self.password.text.length > 0;
     self.loginButton.enabled = nonEmptyEmail && nonEmptyPassword;
+}
+
+
+- (IBAction)loginBtnClicked:(id)sender {
+    
+    
+    [self performSegueWithIdentifier:@"GoToDashBoardSegue" sender:sender];
+    
+//    [[EssentialWebServiceStore sharedStore] loginWithEmail:self.email.text password:self.password.text completion:^(EssentialMemberObject *member, NSError *error) {
+//        
+//        if(!error)
+//        {
+//            [self performSegueWithIdentifier:@"GoToDashBoardSegue" sender:sender];
+//        }
+//    }];
     
 }
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"LoginSegue"]) {
+       
+    }
+    
+}
+
+
+
+
 
 @end

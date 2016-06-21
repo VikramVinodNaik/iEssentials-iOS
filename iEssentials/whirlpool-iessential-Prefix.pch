@@ -24,5 +24,6 @@
 #import "UIColor+Whirlpool.h"
 #import "Constants.h"
 #import "EssentialBaseVC.h"
+#import "EssentialWebServiceStore.h"
 
 #endif

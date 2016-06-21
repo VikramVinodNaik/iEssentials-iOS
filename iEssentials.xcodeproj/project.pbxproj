@@ -19,6 +19,10 @@
 		A6229F6A1D13F214003D006E /* iEssentialsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6229F691D13F214003D006E /* iEssentialsUITests.m */; };
 		A6229F7D1D13F342003D006E /* EssentialBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6229F7C1D13F342003D006E /* EssentialBaseVC.m */; };
 		A6229F7F1D13F50F003D006E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6229F7E1D13F50F003D006E /* Images.xcassets */; };
+		A64A3AFB1D193DAF003F1B6A /* MyAppAFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A3AF81D193DAF003F1B6A /* MyAppAFHTTPSessionManager.m */; };
+		A64A3AFC1D193DAF003F1B6A /* MyAppHTTPRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A3AFA1D193DAF003F1B6A /* MyAppHTTPRequestSerializer.m */; };
+		A64A3B021D193EA6003F1B6A /* EssentialWebServiceStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A3B011D193EA6003F1B6A /* EssentialWebServiceStore.m */; };
+		A64A3B071D194302003F1B6A /* EssentialMemberObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A3B061D194302003F1B6A /* EssentialMemberObject.m */; };
 		A64EC8531D14060A002E8E5D /* UIFont+Whirlpool.m in Sources */ = {isa = PBXBuildFile; fileRef = A64EC8521D14060A002E8E5D /* UIFont+Whirlpool.m */; };
 		A64EC85B1D141FE1002E8E5D /* EssentialEditTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A64EC85A1D141FE1002E8E5D /* EssentialEditTextVC.m */; };
 		A64EC8661D142FE0002E8E5D /* UIColor+Whirlpool.m in Sources */ = {isa = PBXBuildFile; fileRef = A64EC8651D142FE0002E8E5D /* UIColor+Whirlpool.m */; };
@@ -70,6 +74,15 @@
 		A6229F7B1D13F342003D006E /* EssentialBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EssentialBaseVC.h; sourceTree = "<group>"; };
 		A6229F7C1D13F342003D006E /* EssentialBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EssentialBaseVC.m; sourceTree = "<group>"; };
 		A6229F7E1D13F50F003D006E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A64A3AF71D193DAF003F1B6A /* MyAppAFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAppAFHTTPSessionManager.h; sourceTree = "<group>"; };
+		A64A3AF81D193DAF003F1B6A /* MyAppAFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAppAFHTTPSessionManager.m; sourceTree = "<group>"; };
+		A64A3AF91D193DAF003F1B6A /* MyAppHTTPRequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAppHTTPRequestSerializer.h; sourceTree = "<group>"; };
+		A64A3AFA1D193DAF003F1B6A /* MyAppHTTPRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAppHTTPRequestSerializer.m; sourceTree = "<group>"; };
+		A64A3B001D193EA6003F1B6A /* EssentialWebServiceStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EssentialWebServiceStore.h; sourceTree = "<group>"; };
+		A64A3B011D193EA6003F1B6A /* EssentialWebServiceStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EssentialWebServiceStore.m; sourceTree = "<group>"; };
+		A64A3B041D1942D4003F1B6A /* EssentialJSONObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EssentialJSONObject.h; sourceTree = "<group>"; };
+		A64A3B051D194302003F1B6A /* EssentialMemberObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EssentialMemberObject.h; sourceTree = "<group>"; };
+		A64A3B061D194302003F1B6A /* EssentialMemberObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EssentialMemberObject.m; sourceTree = "<group>"; };
 		A64EC8511D14060A002E8E5D /* UIFont+Whirlpool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Whirlpool.h"; sourceTree = "<group>"; };
 		A64EC8521D14060A002E8E5D /* UIFont+Whirlpool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Whirlpool.m"; sourceTree = "<group>"; };
 		A64EC8551D1406A0002E8E5D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -162,6 +175,7 @@
 		A6229F431D13F214003D006E /* iEssentials */ = {
 			isa = PBXGroup;
 			children = (
+				A64A3AF61D193D99003F1B6A /* NetworkStore */,
 				A6229F771D13F22B003D006E /* AppBasicControllers */,
 				A6229F791D13F273003D006E /* Models */,
 				A6229F7A1D13F27F003D006E /* Views */,
@@ -229,6 +243,9 @@
 			children = (
 				A69728E21D190E2700B2609B /* TrayDataObject.h */,
 				A69728E31D190E2700B2609B /* TrayDataObject.m */,
+				A64A3B041D1942D4003F1B6A /* EssentialJSONObject.h */,
+				A64A3B051D194302003F1B6A /* EssentialMemberObject.h */,
+				A64A3B061D194302003F1B6A /* EssentialMemberObject.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -241,6 +258,19 @@
 				A6229F4D1D13F214003D006E /* Main.storyboard */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		A64A3AF61D193D99003F1B6A /* NetworkStore */ = {
+			isa = PBXGroup;
+			children = (
+				A64A3AF71D193DAF003F1B6A /* MyAppAFHTTPSessionManager.h */,
+				A64A3AF81D193DAF003F1B6A /* MyAppAFHTTPSessionManager.m */,
+				A64A3AF91D193DAF003F1B6A /* MyAppHTTPRequestSerializer.h */,
+				A64A3AFA1D193DAF003F1B6A /* MyAppHTTPRequestSerializer.m */,
+				A64A3B001D193EA6003F1B6A /* EssentialWebServiceStore.h */,
+				A64A3B011D193EA6003F1B6A /* EssentialWebServiceStore.m */,
+			);
+			name = NetworkStore;
 			sourceTree = "<group>";
 		};
 		A64EC8501D1405DC002E8E5D /* Categories */ = {
@@ -476,14 +506,18 @@
 				A6229F7D1D13F342003D006E /* EssentialBaseVC.m in Sources */,
 				A6229F4C1D13F214003D006E /* LoginVC.m in Sources */,
 				A69728E41D190E2700B2609B /* TrayDataObject.m in Sources */,
+				A64A3AFC1D193DAF003F1B6A /* MyAppHTTPRequestSerializer.m in Sources */,
+				A64A3AFB1D193DAF003F1B6A /* MyAppAFHTTPSessionManager.m in Sources */,
 				A64EC85B1D141FE1002E8E5D /* EssentialEditTextVC.m in Sources */,
 				A60596B71D17C90200B7BF7E /* DashBoardVC.m in Sources */,
+				A64A3B021D193EA6003F1B6A /* EssentialWebServiceStore.m in Sources */,
 				A60596BB1D18213300B7BF7E /* DashboardCell.m in Sources */,
 				A6229F491D13F214003D006E /* AppDelegate.m in Sources */,
 				A6229F461D13F214003D006E /* main.m in Sources */,
 				A64EC8661D142FE0002E8E5D /* UIColor+Whirlpool.m in Sources */,
 				A64EC8691D14373B002E8E5D /* CameraVC.m in Sources */,
 				A64EC8531D14060A002E8E5D /* UIFont+Whirlpool.m in Sources */,
+				A64A3B071D194302003F1B6A /* EssentialMemberObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
