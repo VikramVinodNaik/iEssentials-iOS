@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "loginbg2x.png",
+      "filename" : "white_arrow.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "white_arrow2x.png",
       "scale" : "2x"
     },
     {

@@ -52,7 +52,6 @@ NSString * const WPReachabilityChangedNotification = @"WPReachabilityChangedNoti
         
         // Set up default timeout interval before we start any networking stuff
         self.timeoutInterval = WPDefaultWISERequestTimeout;
-       
         [self configureNetworkManagers:@"DEV"];
     }
     
@@ -67,10 +66,11 @@ NSString * const WPReachabilityChangedNotification = @"WPReachabilityChangedNoti
     
     self.webservice_manager = [[MyAppAFHTTPSessionManager alloc] initWithBaseURL:baseURL];
     self.webservice_manager.requestSerializer = [MyAppHTTPRequestSerializer serializer];
-    self.webservice_manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    self.webservice_manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    //     self.webservice_manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    [self.webservice_manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-
+    // [self.webservice_manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
     //#if defined (__DEV__)
     
     [self.webservice_manager.securityPolicy setValidatesDomainName:NO];
@@ -116,20 +116,20 @@ NSString * const WPReachabilityChangedNotification = @"WPReachabilityChangedNoti
               password:(NSString *)password
             completion:(void (^)(EssentialMemberObject *member, NSError *error))completionHandler
 {
-    
-    
-    NSString *path = @"getuser.php";
+    NSString *path = @"users/";
     NSDictionary *params = @{@"username"   : username,
                              @"pwd"        : password
                              };
-    [self.webservice_manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
     [self.webservice_manager GET:path parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
-        NSLog(@"JSON: %@", responseObject);
-        
+        NSDictionary *responseJson = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        NSLog(@"%@", responseJson);
         self.currentMember = [[EssentialMemberObject alloc] init];
-        [self.currentMember readFromJSONDictionary:responseObject];
-        
+        if(responseJson)
+        {
+            [self.currentMember readFromJSONDictionary:responseJson];
+        }
         if (completionHandler) {
             completionHandler(self.currentMember, nil);
         }

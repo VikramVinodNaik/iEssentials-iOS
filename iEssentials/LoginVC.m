@@ -74,15 +74,15 @@
 - (IBAction)loginBtnClicked:(id)sender {
     
     
-    [self performSegueWithIdentifier:@"GoToDashBoardSegue" sender:sender];
-    
-//    [[EssentialWebServiceStore sharedStore] loginWithEmail:self.email.text password:self.password.text completion:^(EssentialMemberObject *member, NSError *error) {
-//        
-//        if(!error)
-//        {
-//            [self performSegueWithIdentifier:@"GoToDashBoardSegue" sender:sender];
-//        }
-//    }];
+//    [self performSegueWithIdentifier:@"GoToDashBoardSegue" sender:sender];
+//    
+    [[EssentialWebServiceStore sharedStore] loginWithEmail:self.email.text password:self.password.text completion:^(EssentialMemberObject *member, NSError *error) {
+        
+        if(!error)
+        {
+            [self performSegueWithIdentifier:@"GoToDashBoardSegue" sender:sender];
+        }
+    }];
     
 }
 

@@ -10,6 +10,12 @@
 #import "AppDelegate.h"
 
 
+#define CAMERA_BUTTON_TAG 100
+#define ADD_TRAY_BUTTON_TAG 101
+#define CART_BUTTON_TAG 102
+#define SAVE_TRAY_BUTTON_TAG 103
+
+
 
 @interface EssentialBaseVC ()
 
@@ -18,12 +24,13 @@
 @implementation EssentialBaseVC
 {
     AppDelegate *appDelegate;
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self setUpToolBar];
+    [self setUpDefaultToolBar];
     
 }
 
@@ -44,7 +51,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setUpToolBar
+-(void)setUpDefaultToolBar
 {
     
     self.navigationController.toolbarHidden=NO;
@@ -54,46 +61,87 @@
     UIBarButtonItem *flexiableItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     
     UIImage *background = [UIImage imageNamed:@"toolbaraddicon"];
-    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [addButton addTarget:self action:@selector(addTrayButtonTapped:) forControlEvents:UIControlEventTouchUpInside]; //adding action
-    [addButton setBackgroundImage:background forState:UIControlStateNormal];
-    addButton.frame = CGRectMake(0 ,0,background.size.width-20,background.size.height-30);
-    UIBarButtonItem *toolBarButtonAdd = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+    UIButton *addTrayButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    addTrayButton.tag = ADD_TRAY_BUTTON_TAG;
+    [addTrayButton addTarget:self action:@selector(toolBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside]; //adding action
+    [addTrayButton setBackgroundImage:background forState:UIControlStateNormal];
+    addTrayButton.frame = CGRectMake(0 ,0,background.size.width-20,background.size.height-30);
+    UIBarButtonItem *toolBarButtonAdd = [[UIBarButtonItem alloc] initWithCustomView:addTrayButton];
     
     background = [UIImage imageNamed:@"toolbarcameraicon"];
     UIButton *cameraButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [cameraButton addTarget:self action:@selector(cameraButtonTapped:) forControlEvents:UIControlEventTouchUpInside]; //adding action
+     cameraButton.tag = CAMERA_BUTTON_TAG;
+    [cameraButton addTarget:self action:@selector(toolBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside]; //adding action
     [cameraButton setBackgroundImage:background forState:UIControlStateNormal];
     cameraButton.frame = CGRectMake(0 ,0,background.size.width-20,background.size.height-20);
+    
     UIBarButtonItem *toolBarButtonCamera = [[UIBarButtonItem alloc] initWithCustomView:cameraButton];
     
     background = [UIImage imageNamed:@"toolbarcarticon"];
     UIButton *cartButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [cartButton addTarget:self action:@selector(cartButtonTapped:) forControlEvents:UIControlEventTouchUpInside]; //adding action
+    cartButton.tag =  CART_BUTTON_TAG;
+    [cartButton addTarget:self action:@selector(toolBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside]; //adding action
     [cartButton setBackgroundImage:background forState:UIControlStateNormal];
     cartButton.frame = CGRectMake(0 ,0,background.size.width-20,background.size.height-20);
     UIBarButtonItem *toolBarButtonCart = [[UIBarButtonItem alloc] initWithCustomView:cartButton];
     
     NSArray *items = [NSArray arrayWithObjects:toolBarButtonCamera,flexiableItem, toolBarButtonAdd,flexiableItem, toolBarButtonCart, nil];
     self.toolbarItems = items;
+}
+
+
+-(void)setUpDoneBtnToolBar
+{
     
+    self.navigationController.toolbarHidden=NO;
+    self.navigationController.navigationBarHidden = NO;
+    UIBarButtonItem *flexiableItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIButton *saveButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    saveButton.tag = SAVE_TRAY_BUTTON_TAG;
+    [saveButton addTarget:self action:@selector(toolBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside]; //adding action
+    
+    [saveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [saveButton setTitle:@"Done" forState:UIControlStateNormal];
+    
+    CGRect frame = self.navigationController.toolbar.frame;
+     saveButton.frame = CGRectMake(0 ,0,frame.size.width,frame.size.height);
+    [saveButton.titleLabel setFont:[UIFont whirlpoolB1Font]];
+    UIBarButtonItem *toolBarButtonSaveTray = [[UIBarButtonItem alloc] initWithCustomView:saveButton];
+    
+     NSArray *items = [NSArray arrayWithObjects:flexiableItem, toolBarButtonSaveTray,flexiableItem, nil];
+    
+    [self setToolbarItems:items animated:YES];
+
     
 }
 
-- (void)addTrayButtonTapped:(id)sender
+-(void)setUpAddTrayToolBar
 {
-    NSLog(@"Add tray Btn Clicked ");
+    
 }
 
-- (void)cameraButtonTapped:(id)sender
+- (void)toolBarButtonClicked:(id)sender
 {
-    NSLog(@"Camera Btn Clicked ");
-}
+    UIButton *clickedButton = sender;
+    if(clickedButton.tag == CAMERA_BUTTON_TAG)
+    {
+        NSLog(@"Camera Btn Clicked ");
+    }if(clickedButton.tag == ADD_TRAY_BUTTON_TAG)
+    {
+        NSLog(@"Add tray Btn Clicked ");
+        
+    }
+    else if(clickedButton.tag == CART_BUTTON_TAG)
+    {
+        NSLog(@"CART Btn Clicked ");
+        
+    }else if(clickedButton.tag == SAVE_TRAY_BUTTON_TAG)
+    {
+        NSLog(@"Save tray Btn Clicked ");
+        
+    }
 
-- (void)cartButtonTapped:(id)sender
-{
-    NSLog(@"Camera Btn Clicked ");
-}
 
+}
 
 @end

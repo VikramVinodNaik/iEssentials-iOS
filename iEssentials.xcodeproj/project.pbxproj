@@ -23,6 +23,7 @@
 		A64A3AFC1D193DAF003F1B6A /* MyAppHTTPRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A3AFA1D193DAF003F1B6A /* MyAppHTTPRequestSerializer.m */; };
 		A64A3B021D193EA6003F1B6A /* EssentialWebServiceStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A3B011D193EA6003F1B6A /* EssentialWebServiceStore.m */; };
 		A64A3B071D194302003F1B6A /* EssentialMemberObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A3B061D194302003F1B6A /* EssentialMemberObject.m */; };
+		A64A3B0B1D196104003F1B6A /* AccountSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A64A3B0A1D196104003F1B6A /* AccountSettingVC.m */; };
 		A64EC8531D14060A002E8E5D /* UIFont+Whirlpool.m in Sources */ = {isa = PBXBuildFile; fileRef = A64EC8521D14060A002E8E5D /* UIFont+Whirlpool.m */; };
 		A64EC85B1D141FE1002E8E5D /* EssentialEditTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A64EC85A1D141FE1002E8E5D /* EssentialEditTextVC.m */; };
 		A64EC8661D142FE0002E8E5D /* UIColor+Whirlpool.m in Sources */ = {isa = PBXBuildFile; fileRef = A64EC8651D142FE0002E8E5D /* UIColor+Whirlpool.m */; };
@@ -83,6 +84,8 @@
 		A64A3B041D1942D4003F1B6A /* EssentialJSONObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EssentialJSONObject.h; sourceTree = "<group>"; };
 		A64A3B051D194302003F1B6A /* EssentialMemberObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EssentialMemberObject.h; sourceTree = "<group>"; };
 		A64A3B061D194302003F1B6A /* EssentialMemberObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EssentialMemberObject.m; sourceTree = "<group>"; };
+		A64A3B091D196104003F1B6A /* AccountSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountSettingVC.h; sourceTree = "<group>"; };
+		A64A3B0A1D196104003F1B6A /* AccountSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountSettingVC.m; sourceTree = "<group>"; };
 		A64EC8511D14060A002E8E5D /* UIFont+Whirlpool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Whirlpool.h"; sourceTree = "<group>"; };
 		A64EC8521D14060A002E8E5D /* UIFont+Whirlpool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Whirlpool.m"; sourceTree = "<group>"; };
 		A64EC8551D1406A0002E8E5D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -232,6 +235,7 @@
 		A6229F781D13F25D003D006E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A64A3B081D1960E1003F1B6A /* Settings */,
 				A64EC85D1D1427B4002E8E5D /* Login */,
 				A64EC85C1D1427AC002E8E5D /* Dashboard */,
 			);
@@ -271,6 +275,15 @@
 				A64A3B011D193EA6003F1B6A /* EssentialWebServiceStore.m */,
 			);
 			name = NetworkStore;
+			sourceTree = "<group>";
+		};
+		A64A3B081D1960E1003F1B6A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A64A3B091D196104003F1B6A /* AccountSettingVC.h */,
+				A64A3B0A1D196104003F1B6A /* AccountSettingVC.m */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		A64EC8501D1405DC002E8E5D /* Categories */ = {
@@ -504,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6229F7D1D13F342003D006E /* EssentialBaseVC.m in Sources */,
+				A64A3B0B1D196104003F1B6A /* AccountSettingVC.m in Sources */,
 				A6229F4C1D13F214003D006E /* LoginVC.m in Sources */,
 				A69728E41D190E2700B2609B /* TrayDataObject.m in Sources */,
 				A64A3AFC1D193DAF003F1B6A /* MyAppHTTPRequestSerializer.m in Sources */,

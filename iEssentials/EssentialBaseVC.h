@@ -18,4 +18,10 @@
 
 @property (nonatomic) BOOL tiledBackground;
 
+-(void)setUpDefaultToolBar;
+-(void)setUpDoneBtnToolBar;
+-(void)setUpAddTrayToolBar;
+
+- (void)toolBarButtonClicked:(id)sender;
+
 @end

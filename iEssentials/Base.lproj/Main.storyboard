@@ -199,6 +199,24 @@
             </objects>
             <point key="canvasLocation" x="1124" y="336"/>
         </scene>
+        <!--Account SettingVC-->
+        <scene sceneID="ePl-nt-r77">
+            <objects>
+                <viewController id="NCI-HF-m1m" customClass="AccountSettingVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Roa-W6-bis"/>
+                        <viewControllerLayoutGuide type="bottom" id="p4b-Au-5W6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="egC-GV-rY8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ecg-mB-39r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2829" y="1230"/>
+        </scene>
         <!--CameraVC-->
         <scene sceneID="KGB-ZJ-1bu">
             <objects>
@@ -252,6 +270,9 @@
                                             <constraint firstAttribute="width" constant="38" id="ebS-fS-gEn"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="setting"/>
+                                        <connections>
+                                            <segue destination="NCI-HF-m1m" kind="show" id="JBu-bo-h2n"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IEssential Trays" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRG-D1-Wmo">
                                         <rect key="frame" x="175" y="157" width="250" height="26.5"/>
@@ -528,7 +549,7 @@
         <image name="passwordicon" width="10" height="12"/>
         <image name="profilepicplaceholder" width="87" height="87"/>
         <image name="setting" width="47" height="39"/>
-        <image name="singinBg" width="532" height="928"/>
+        <image name="singinBg" width="375" height="667"/>
         <image name="tabbarcameraactive" width="34" height="34"/>
         <image name="trayimage" width="92" height="65"/>
     </resources>
