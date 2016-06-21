@@ -1,0 +1,28 @@
+//
+//  whirlpool-iessential-Prefix.pch
+//  iEssentials
+//
+//  Created by Vikram Naik on 17/06/16.
+//  Copyright © 2016 whirlpool. All rights reserved.
+//
+
+#ifndef whirlpool_iessential_Prefix_pch
+#define whirlpool_iessential_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* whirlpool_iessential_Prefix_pch */
+
+
+#ifdef __OBJC__
+
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "UIFont+Whirlpool.h"
+#import "UIColor+Whirlpool.h"
+#import "Constants.h"
+#import "EssentialBaseVC.h"
+
+#endif
