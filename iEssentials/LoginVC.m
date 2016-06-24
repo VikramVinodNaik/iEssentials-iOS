@@ -7,7 +7,7 @@
 //
 
 #import "LoginVC.h"
-
+#import "SCLAlertView.h"
 
 
 @interface LoginVC ()<UITextFieldDelegate>
@@ -74,15 +74,29 @@
 - (IBAction)loginBtnClicked:(id)sender {
     
     
-//    [self performSegueWithIdentifier:@"GoToDashBoardSegue" sender:sender];
-//    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = LOADING_TEXT;
+    
     [[EssentialWebServiceStore sharedStore] loginWithEmail:self.email.text password:self.password.text completion:^(EssentialMemberObject *member, NSError *error) {
-        
+        [hud hide:YES];
         if(!error)
         {
             [self performSegueWithIdentifier:@"GoToDashBoardSegue" sender:sender];
+        }else
+        {
+            [self handleLoginError : error];
         }
     }];
+    
+}
+
+
+-(void)handleLoginError:(NSError *)error
+{
+    NSString *errorDes = [error.userInfo objectForKey:@"Error"];
+    
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+    [alert showError:self title:@"Error" subTitle:errorDes closeButtonTitle:@"OK" duration:0.0f];
     
 }
 

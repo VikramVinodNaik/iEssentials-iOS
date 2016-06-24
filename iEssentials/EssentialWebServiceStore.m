@@ -66,10 +66,9 @@ NSString * const WPReachabilityChangedNotification = @"WPReachabilityChangedNoti
     
     self.webservice_manager = [[MyAppAFHTTPSessionManager alloc] initWithBaseURL:baseURL];
     self.webservice_manager.requestSerializer = [MyAppHTTPRequestSerializer serializer];
-    self.webservice_manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    //     self.webservice_manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    self.webservice_manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    // [self.webservice_manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
     
     //#if defined (__DEV__)
     
@@ -116,19 +115,24 @@ NSString * const WPReachabilityChangedNotification = @"WPReachabilityChangedNoti
               password:(NSString *)password
             completion:(void (^)(EssentialMemberObject *member, NSError *error))completionHandler
 {
-    NSString *path = @"users/";
+    NSString *path = @"user/";
     NSDictionary *params = @{@"username"   : username,
                              @"pwd"        : password
                              };
     
     [self.webservice_manager GET:path parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
-        NSDictionary *responseJson = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        NSLog(@"%@", responseJson);
+        NSLog(@"%@", responseObject);
+         if (responseObject[@"Error"]) {
+             NSError *custError = [NSError errorWithDomain:@"com.whirlpool.iessential" code:10 userInfo:responseObject];
+               completionHandler(nil, custError);
+             return;
+        }
+
         self.currentMember = [[EssentialMemberObject alloc] init];
-        if(responseJson)
+        if(responseObject)
         {
-            [self.currentMember readFromJSONDictionary:responseJson];
+            [self.currentMember readFromJSONDictionary:responseObject];
         }
         if (completionHandler) {
             completionHandler(self.currentMember, nil);

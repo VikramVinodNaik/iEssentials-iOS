@@ -25,5 +25,6 @@
 #import "Constants.h"
 #import "EssentialBaseVC.h"
 #import "EssentialWebServiceStore.h"
+#import "MBProgressHUD.h"
 
 #endif

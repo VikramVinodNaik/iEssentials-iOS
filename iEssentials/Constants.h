@@ -24,3 +24,4 @@
 #define LOGIN_PASSWORD_PLACEHOLDER   @"Password"
 #define LOGIN_FORGOT_PASSWORD_TEXT   @"Forgot Password?"
 #define LOGIN_REMEMBER_TEXT   @"Remember Me"
+#define LOADING_TEXT   @"Loading..."
