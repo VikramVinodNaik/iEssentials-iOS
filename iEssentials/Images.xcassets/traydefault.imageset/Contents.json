@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "white_arrow.png",
+      "filename" : "Tray_stages_1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "white_arrow2x.png",
       "scale" : "2x"
     },
     {

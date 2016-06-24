@@ -104,7 +104,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([[segue identifier] isEqualToString:@"LoginSegue"]) {
+    if ([[segue identifier] isEqualToString:@"GoToDashBoardSegue"]) {
        
     }
     

@@ -29,6 +29,8 @@
 		A64EC8661D142FE0002E8E5D /* UIColor+Whirlpool.m in Sources */ = {isa = PBXBuildFile; fileRef = A64EC8651D142FE0002E8E5D /* UIColor+Whirlpool.m */; };
 		A64EC8691D14373B002E8E5D /* CameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A64EC8681D14373B002E8E5D /* CameraVC.m */; };
 		A69728E41D190E2700B2609B /* TrayDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A69728E31D190E2700B2609B /* TrayDataObject.m */; };
+		A6B9A88F1D1D0A3800A5E671 /* TrayDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B9A88E1D1D0A3800A5E671 /* TrayDetailVC.m */; };
+		A6B9A8921D1D2CD700A5E671 /* TrayDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B9A8911D1D2CD700A5E671 /* TrayDetailCell.m */; };
 		ADC9D0C7BC5553B0984CB38B /* libPods-iEssentials.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA828FD8CDEE14D0F26A4723 /* libPods-iEssentials.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +100,10 @@
 		A64EC8681D14373B002E8E5D /* CameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraVC.m; sourceTree = "<group>"; };
 		A69728E21D190E2700B2609B /* TrayDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrayDataObject.h; sourceTree = "<group>"; };
 		A69728E31D190E2700B2609B /* TrayDataObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrayDataObject.m; sourceTree = "<group>"; };
+		A6B9A88D1D1D0A3800A5E671 /* TrayDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrayDetailVC.h; sourceTree = "<group>"; };
+		A6B9A88E1D1D0A3800A5E671 /* TrayDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrayDetailVC.m; sourceTree = "<group>"; };
+		A6B9A8901D1D2CD700A5E671 /* TrayDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrayDetailCell.h; sourceTree = "<group>"; };
+		A6B9A8911D1D2CD700A5E671 /* TrayDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrayDetailCell.m; sourceTree = "<group>"; };
 		AA828FD8CDEE14D0F26A4723 /* libPods-iEssentials.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iEssentials.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -149,6 +155,8 @@
 			children = (
 				A60596B91D18213300B7BF7E /* DashboardCell.h */,
 				A60596BA1D18213300B7BF7E /* DashboardCell.m */,
+				A6B9A8901D1D2CD700A5E671 /* TrayDetailCell.h */,
+				A6B9A8911D1D2CD700A5E671 /* TrayDetailCell.m */,
 			);
 			name = CustomCell;
 			sourceTree = "<group>";
@@ -317,8 +325,8 @@
 		A64EC85C1D1427AC002E8E5D /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				A64EC8671D14373B002E8E5D /* CameraVC.h */,
-				A64EC8681D14373B002E8E5D /* CameraVC.m */,
+				A6B9A88C1D1D0A1400A5E671 /* Camera */,
+				A6B9A88B1D1D0A0500A5E671 /* TrayDetail */,
 				A60596B51D17C90200B7BF7E /* DashBoardVC.h */,
 				A60596B61D17C90200B7BF7E /* DashBoardVC.m */,
 			);
@@ -332,6 +340,24 @@
 				A6229F4B1D13F214003D006E /* LoginVC.m */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		A6B9A88B1D1D0A0500A5E671 /* TrayDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A6B9A88D1D1D0A3800A5E671 /* TrayDetailVC.h */,
+				A6B9A88E1D1D0A3800A5E671 /* TrayDetailVC.m */,
+			);
+			name = TrayDetail;
+			sourceTree = "<group>";
+		};
+		A6B9A88C1D1D0A1400A5E671 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				A64EC8671D14373B002E8E5D /* CameraVC.h */,
+				A64EC8681D14373B002E8E5D /* CameraVC.m */,
+			);
+			name = Camera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -527,6 +553,8 @@
 				A64A3B021D193EA6003F1B6A /* EssentialWebServiceStore.m in Sources */,
 				A60596BB1D18213300B7BF7E /* DashboardCell.m in Sources */,
 				A6229F491D13F214003D006E /* AppDelegate.m in Sources */,
+				A6B9A88F1D1D0A3800A5E671 /* TrayDetailVC.m in Sources */,
+				A6B9A8921D1D2CD700A5E671 /* TrayDetailCell.m in Sources */,
 				A6229F461D13F214003D006E /* main.m in Sources */,
 				A64EC8661D142FE0002E8E5D /* UIColor+Whirlpool.m in Sources */,
 				A64EC8691D14373B002E8E5D /* CameraVC.m in Sources */,

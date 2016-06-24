@@ -9,6 +9,7 @@
 #import "DashBoardVC.h"
 #import "DashboardCell.h"
 #import "TrayDataObject.h"
+#import "TrayDetailVC.h"
 
 @interface DashBoardVC ()
 
@@ -34,7 +35,6 @@
     float top = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 26 : 8;
     self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(top, 0, bottom, 0);
-    
     [self populateTrayValues];
     
     
@@ -52,16 +52,6 @@
      self.navigationController.navigationBarHidden = YES;
     
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 #pragma mark - Table view
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -73,6 +63,7 @@
 {
     return 1;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"DashboardCell";
@@ -104,17 +95,16 @@
     return cell;
 }
 
--(void)trayButtonClicked:(UIButton*)sender
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (sender.tag == 0)
-    {
-       NSLog(@"Dairy Btn Clicked ");
-    }else if ( sender.tag == 1)
-    {
-      NSLog(@"Veggie Btn Clicked ");
-    }
+    NSLog(@"Cell Clicked + Cell No: %ld",indexPath.row);
 }
 
+-(void)trayButtonClicked:(UIButton*)sender
+{
+    [self performSegueWithIdentifier:@"showTrayDetail" sender:sender];
+    
+}
 
 //Hardcoded Data For TRAY
 
@@ -131,16 +121,30 @@
     tray1.item2qnty = @"Low";
     tray1.item3qnty = @"Full";
     
-    //    TrayDataObject *tray2 = [[TrayDataObject alloc]init];
-    //    tray2.detailLabel = @"Vege Tray";
-    //    tray2.item1Label = @"Eggs";
-    //    tray2.item2Label = @"Bread";
-    //    tray2.item3Label = @"Milk";
-    //    tray2.item1qnty = @"Low";
-    //    tray2.item2qnty = @"Full";
-    //    tray2.item3qnty = @"Full";
-    
     [self.localDataModels addObject:tray1];
     
 }
+
+
+
+
+
+
+ #pragma mark - Navigation
+
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     
+
+     if ([[segue identifier] isEqualToString:@"showTrayDetail"]) {
+         UIButton *senderClkdButton = sender;
+         TrayDataObject *tray = [self.localDataModels objectAtIndex:senderClkdButton.tag];
+         if(tray)
+         {
+         TrayDetailVC *dest = [segue destinationViewController];
+         dest.trayObject = tray;
+         }
+         
+     }
+     
+ }
 @end

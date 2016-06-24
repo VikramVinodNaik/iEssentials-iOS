@@ -42,6 +42,12 @@
         UIColor* color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ViewBG_image"]];
         self.view.backgroundColor = color;
     }
+    
+    //Set Custom BackGround image for NavigationBar
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
+        UIImage *image = [UIImage imageNamed:@"navbarbgimage"];
+        [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    }
 }
 
 

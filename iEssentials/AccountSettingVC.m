@@ -19,8 +19,6 @@
     self.title = @"Account Settings";
     self.tiledBackground = YES;
     
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"whitearrow"] forBarPosition:UIBarPositionTopAttached barMetrics:UIBarMetricsDefault];
-    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
