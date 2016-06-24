@@ -12,7 +12,7 @@
 #import "AppDelegate.h"
 
 
-NSString * const EssentialStoreBaseURLString = @"http://10.236.10.63/hackathon/";
+NSString * const EssentialStoreBaseURLString = @"http://52.41.97.190/hackathon/iEssentials/";
 
 // Timeout intervals
 NSTimeInterval const WPDefaultWISERequestTimeout = 60;

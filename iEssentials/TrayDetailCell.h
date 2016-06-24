@@ -20,4 +20,5 @@
 // Override this if needed
 + (CGFloat)desiredHeight;
 - (void)configTrayDetailCell:(TraySectionObject *)trayObject;
+- (void)hideEditButtonForIndex:(BOOL)hideEditButton;
 @end

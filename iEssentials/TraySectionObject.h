@@ -13,5 +13,6 @@
 @property (nonatomic, copy) NSString *sectionDetailLabel;
 @property (nonatomic, copy) NSString *sectionStatus;
 @property (nonatomic, copy) UIImageView *sectionImageView;
+@property(nonatomic) BOOL showEditButtonForSection;
 
 @end

@@ -16,6 +16,20 @@
 @implementation TrayDetailCell
 
 
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+    
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    // Configure the view for the selected state
+}
+
 + (CGFloat)desiredHeight
 {
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
@@ -28,6 +42,10 @@
     self.sectionDetailLabel.text = trayObject.sectionDetailLabel;
     self.setionStatusLabel.text = trayObject.sectionStatus;
     
+}
+- (void)hideEditButtonForIndex:(BOOL)hideEditButton
+{
+    self.sectionEditButton.hidden = hideEditButton;
 }
 
 @end

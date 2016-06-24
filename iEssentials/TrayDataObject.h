@@ -11,6 +11,6 @@
 @interface TrayDataObject : NSObject  <EssentialJSONObject>
 
 @property (nonatomic, copy) NSString *detailLabel;
-@property (nonatomic,copy)  NSArray *sections;
+@property (nonatomic,copy)  NSMutableArray *sections;
 
 @end
