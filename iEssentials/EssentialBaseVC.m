@@ -65,7 +65,7 @@
     addTrayButton.tag = ADD_TRAY_BUTTON_TAG;
     [addTrayButton addTarget:self action:@selector(toolBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside]; //adding action
     [addTrayButton setBackgroundImage:background forState:UIControlStateNormal];
-    addTrayButton.frame = CGRectMake(0 ,0,background.size.width-20,background.size.height-30);
+    addTrayButton.frame = CGRectMake(0 ,0,background.size.width-25,background.size.height-30);
     UIBarButtonItem *toolBarButtonAdd = [[UIBarButtonItem alloc] initWithCustomView:addTrayButton];
     
     background = [UIImage imageNamed:@"toolbarcameraicon"];
