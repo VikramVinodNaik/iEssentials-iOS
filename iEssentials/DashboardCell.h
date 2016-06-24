@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class TrayDataObject;
+
 @interface DashboardCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *trayImageView;
 @property (weak, nonatomic) IBOutlet UILabel *trayDetailLabel;
@@ -27,5 +29,7 @@
 
 // Override this if needed
 + (CGFloat)desiredHeight;
+- (void)configDashBoardCell:(TrayDataObject *)trayObject;
+
 
 @end

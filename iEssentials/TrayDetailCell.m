@@ -7,6 +7,11 @@
 //
 
 #import "TrayDetailCell.h"
+#import "TraySectionObject.h"
+
+@interface TrayDetailCell()
+
+@end
 
 @implementation TrayDetailCell
 
@@ -17,4 +22,12 @@
         return 200;
     return 100;
 }
+
+- (void)configTrayDetailCell:(TraySectionObject *)trayObject
+{
+    self.sectionDetailLabel.text = trayObject.sectionDetailLabel;
+    self.setionStatusLabel.text = trayObject.sectionStatus;
+    
+}
+
 @end

@@ -31,6 +31,7 @@
 		A69728E41D190E2700B2609B /* TrayDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A69728E31D190E2700B2609B /* TrayDataObject.m */; };
 		A6B9A88F1D1D0A3800A5E671 /* TrayDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B9A88E1D1D0A3800A5E671 /* TrayDetailVC.m */; };
 		A6B9A8921D1D2CD700A5E671 /* TrayDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B9A8911D1D2CD700A5E671 /* TrayDetailCell.m */; };
+		A6B9A8951D1D431500A5E671 /* TraySectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B9A8941D1D431500A5E671 /* TraySectionObject.m */; };
 		ADC9D0C7BC5553B0984CB38B /* libPods-iEssentials.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA828FD8CDEE14D0F26A4723 /* libPods-iEssentials.a */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,8 @@
 		A6B9A88E1D1D0A3800A5E671 /* TrayDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrayDetailVC.m; sourceTree = "<group>"; };
 		A6B9A8901D1D2CD700A5E671 /* TrayDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrayDetailCell.h; sourceTree = "<group>"; };
 		A6B9A8911D1D2CD700A5E671 /* TrayDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrayDetailCell.m; sourceTree = "<group>"; };
+		A6B9A8931D1D431500A5E671 /* TraySectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TraySectionObject.h; sourceTree = "<group>"; };
+		A6B9A8941D1D431500A5E671 /* TraySectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TraySectionObject.m; sourceTree = "<group>"; };
 		AA828FD8CDEE14D0F26A4723 /* libPods-iEssentials.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iEssentials.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -258,6 +261,8 @@
 				A64A3B041D1942D4003F1B6A /* EssentialJSONObject.h */,
 				A64A3B051D194302003F1B6A /* EssentialMemberObject.h */,
 				A64A3B061D194302003F1B6A /* EssentialMemberObject.m */,
+				A6B9A8931D1D431500A5E671 /* TraySectionObject.h */,
+				A6B9A8941D1D431500A5E671 /* TraySectionObject.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -544,6 +549,7 @@
 			files = (
 				A6229F7D1D13F342003D006E /* EssentialBaseVC.m in Sources */,
 				A64A3B0B1D196104003F1B6A /* AccountSettingVC.m in Sources */,
+				A6B9A8951D1D431500A5E671 /* TraySectionObject.m in Sources */,
 				A6229F4C1D13F214003D006E /* LoginVC.m in Sources */,
 				A69728E41D190E2700B2609B /* TrayDataObject.m in Sources */,
 				A64A3AFC1D193DAF003F1B6A /* MyAppHTTPRequestSerializer.m in Sources */,

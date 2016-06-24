@@ -1,18 +1,18 @@
 //
-//  TrayDataObject.m
+//  TrayObject.m
 //  iEssentials
 //
-//  Created by Vikram Naik on 21/06/16.
+//  Created by Vikram Naik on 24/06/16.
 //  Copyright © 2016 whirlpool. All rights reserved.
 //
 
-#import "TrayDataObject.h"
+#import "TraySectionObject.h"
 
-@implementation TrayDataObject
+@implementation TraySectionObject
 
 - (void)readFromJSONDictionary:(NSDictionary *)attrs
 {
-  
+    
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "DashboardCell.h"
 #import "TrayDataObject.h"
 #import "TrayDetailVC.h"
+#import "TraySectionObject.h"
 
 @interface DashBoardVC ()
 
@@ -81,16 +82,7 @@
     [cell.trayDetailsButton addTarget:self action:@selector(trayButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     if(tray)
     {
-    cell.trayDetailLabel.text = tray.detailLabel;
-    cell.item1DetailLabel.text = tray.item1Label;
-    cell.item2DetailLabel.text = tray.item2Label;
-    cell.item3DetailLabel.text = tray.item3Label;
-    cell.item1QuantityLabel.text = tray.item1qnty;
-    cell.item2QuantityLabel.text = tray.item2qnty;
-    cell.item3QuantityLabel.text = tray.item3qnty;
-    cell.item1ImageView.image = [UIImage imageNamed:@"item_egg_full"];
-    cell.item2ImageView.image = [UIImage imageNamed:@"item_bread_low"];
-    cell.item3ImageView.image = [UIImage imageNamed:@"item_milk_full"];
+    [cell configDashBoardCell:tray];
     }
     return cell;
 }
@@ -112,16 +104,35 @@
 {
     self.localDataModels = [[NSMutableArray alloc] init];
     
-    TrayDataObject *tray1 = [[TrayDataObject alloc]init];
-    tray1.detailLabel = @"Milk Products Tray";
-    tray1.item1Label = @"Eggs";
-    tray1.item2Label = @"Bread";
-    tray1.item3Label = @"Milk";
-    tray1.item1qnty = @"Full";
-    tray1.item2qnty = @"Low";
-    tray1.item3qnty = @"Full";
+    TrayDataObject *trayObject = [[TrayDataObject alloc]init];
+    trayObject.detailLabel = @"Milk Products Tray";
     
-    [self.localDataModels addObject:tray1];
+    NSMutableArray *sections = [[NSMutableArray alloc]init];
+    
+    TraySectionObject *section1  =[[TraySectionObject alloc]init];
+    section1.sectionDetailLabel = @"Eggs";
+    section1.sectionStatus = @"Full";
+    section1.sectionImageView.image = [UIImage imageNamed:@"item_egg_full"];
+    
+    [sections addObject:section1];
+    
+    TraySectionObject *section2  =[[TraySectionObject alloc]init];
+    section2.sectionDetailLabel = @"Bread";
+    section2.sectionStatus = @"Low";
+    section2.sectionImageView.image = [UIImage imageNamed:@"item_bread_low"];
+    
+    [sections addObject:section2];
+    
+    TraySectionObject *section3  =[[TraySectionObject alloc]init];
+    section3.sectionDetailLabel = @"Milk";
+    section3.sectionStatus = @"Full";
+    section3.sectionImageView.image = [UIImage imageNamed:@"item_milk_full"];
+    
+    [sections addObject:section3];
+
+    trayObject.sections = sections;
+    
+    [self.localDataModels addObject:trayObject];
     
 }
 

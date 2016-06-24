@@ -8,15 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TrayDataObject : NSObject
+@interface TrayDataObject : NSObject  <EssentialJSONObject>
+
 @property (nonatomic, copy) NSString *detailLabel;
-
-@property (nonatomic, copy) NSString *item1Label;
-@property (nonatomic, copy) NSString *item2Label;
-@property (nonatomic, copy) NSString *item3Label;
-
-@property (nonatomic, copy) NSString *item1qnty;
-@property (nonatomic, copy) NSString *item2qnty;
-@property (nonatomic, copy) NSString *item3qnty;
+@property (nonatomic,copy)  NSArray *sections;
 
 @end

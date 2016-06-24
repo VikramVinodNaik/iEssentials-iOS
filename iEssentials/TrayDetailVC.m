@@ -9,9 +9,11 @@
 #import "TrayDetailVC.h"
 #import "TrayDataObject.h"
 #import "TrayDetailCell.h"
+#import "TraySectionObject.h"
 
 @interface TrayDetailVC ()
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *trayImageView;
 @end
 
 @implementation TrayDetailVC
@@ -51,13 +53,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"TrayDetailCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    TrayDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    TraySectionObject *traySection = [self.trayObject.sections objectAtIndex:indexPath.row];
+    
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]
+        cell = [[TrayDetailCell alloc]
                 initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:CellIdentifier];
     }
-    cell.detailTextLabel.text = @"Testinggggg";
+    
+    if(self.trayObject)
+    {
+        [cell configTrayDetailCell:traySection];
+        
+    }
+    
     return cell;
 }
 

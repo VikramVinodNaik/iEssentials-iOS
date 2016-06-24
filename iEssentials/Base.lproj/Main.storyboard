@@ -337,6 +337,12 @@
                                                 <constraint firstItem="xUf-mc-34y" firstAttribute="leading" secondItem="Jo0-hR-J7A" secondAttribute="trailing" constant="15" id="k5f-T7-meg"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="sectionDetailLabel" destination="dFF-Cv-x7o" id="YQb-JL-2U3"/>
+                                            <outlet property="sectionEditButton" destination="dPv-hZ-qgY" id="FSh-91-wFq"/>
+                                            <outlet property="sectionImageView" destination="Jo0-hR-J7A" id="nYc-Yx-llF"/>
+                                            <outlet property="setionStatusLabel" destination="xUf-mc-34y" id="Qm1-zV-eB0"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -362,6 +368,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="edN-I0-QMj" id="i9D-zG-e9t"/>
+                        <outlet property="trayImageView" destination="jfG-Rr-VuQ" id="vSS-oe-ICA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPW-5w-JOD" userLabel="First Responder" sceneMemberID="firstResponder"/>
