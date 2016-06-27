@@ -89,7 +89,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Cell Clicked + Cell No: %ld",indexPath.row);
+    NSLog(@"Cell Clicked + Cell No: %ld",(long)indexPath.row);
 }
 
 -(void)trayButtonClicked:(UIButton*)sender

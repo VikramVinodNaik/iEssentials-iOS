@@ -52,7 +52,8 @@
     {
         if(_selectedSectionIndex == indexPath.row)
         {
-            cell.backgroundColor = [UIColor colorWithHexString:@"CCD3D3"];
+            cell.backgroundColor = [UIColor colorWithHexString:@"D4D4D5"];
+//            cell.backgroundColor = [UIColor colorWithRed:212 green:212 blue:213 alpha:1];
         }else
         {
             cell.backgroundColor = [UIColor clearColor];
@@ -112,7 +113,7 @@
 -(void)traySectionEditBtnClicked:(UIButton*)sender
 {
 //    [self performSegueWithIdentifier:@"showTrayDetail" sender:sender];
-    NSLog(@"EditButton Clicked for Section %ld",sender.tag);
+    NSLog(@"EditButton Clicked for Section %ld",(long)sender.tag);
     
 }
 
