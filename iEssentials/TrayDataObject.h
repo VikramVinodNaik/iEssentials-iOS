@@ -10,7 +10,9 @@
 
 @interface TrayDataObject : NSObject  <EssentialJSONObject>
 
-@property (nonatomic, copy) NSString *detailLabel;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic) long trayId;
+@property (nonatomic) long userId;
 @property (nonatomic,copy)  NSMutableArray *sections;
 
 @end

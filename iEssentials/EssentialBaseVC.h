@@ -21,7 +21,11 @@
 -(void)setUpDefaultToolBar;
 -(void)setUpDoneBtnToolBar;
 -(void)setUpAddTrayToolBar;
+-(void)setUpSaveBtnToolBar;
+-(void)setUpCreateBtnToolBar;
 
 - (void)toolBarButtonClicked:(id)sender;
+- (void)updateUI:(NSNotification *)note;
+-(void)logout;
 
 @end

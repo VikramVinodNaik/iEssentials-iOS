@@ -26,5 +26,9 @@
 #import "EssentialBaseVC.h"
 #import "EssentialWebServiceStore.h"
 #import "MBProgressHUD.h"
+#import "UIColor+Whirlpool.h"
+#import "EssentialEditTextVC.h"
+#import "CustomErrorTextField.h"
+#import "Constants.h"
 
 #endif

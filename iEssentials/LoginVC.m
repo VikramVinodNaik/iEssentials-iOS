@@ -8,7 +8,7 @@
 
 #import "LoginVC.h"
 #import "SCLAlertView.h"
-
+#import "TPKeyboardAvoidingScrollView.h"
 
 @interface LoginVC ()<UITextFieldDelegate>
 
@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *forgotPWButton;
+@property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *scrollView;
 
 
 @end
@@ -28,6 +29,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self setUpBasicUI];
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.toolbarHidden = YES;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.toolbarHidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,6 +64,7 @@
     [self.forgotPWButton setTitle:LOGIN_FORGOT_PASSWORD_TEXT forState:UIControlStateNormal];
     self.forgotPWButton.titleLabel.adjustsFontSizeToFitWidth = YES;
     [self.rememberMeLabel setText:LOGIN_REMEMBER_TEXT];
+    
 }
 
 - (IBAction)rememberMe:(id)sender
@@ -108,6 +118,11 @@
        
     }
     
+}
+
+- (void)updateUI:(NSNotification *)note
+{
+    NSLog(@"Base Class updateUI");
 }
 
 

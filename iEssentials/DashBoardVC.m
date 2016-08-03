@@ -13,11 +13,15 @@
 #import "TraySectionObject.h"
 
 @interface DashBoardVC ()
+{
+    MBProgressHUD *hud;
+}
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 // Model
 @property (nonatomic, strong) NSMutableArray *localDataModels;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -31,14 +35,25 @@
     // Do any additional setup after loading the view.
      self.tiledBackground = YES;
    
-    self.tableView.rowHeight = [DashboardCell desiredHeight];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 250;
+    //[DashboardCell desiredHeight];
     float bottom = 65;
     float top = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 26 : 8;
     self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(top, 0, bottom, 0);
-    [self populateTrayValues];
     
+    if ((NSClassFromString(@"UIAlertController")) &&
+        ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]))
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    } else {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert];
+    }
     
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [hud setLabelText:@"Loading..."];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +67,17 @@
     [super viewWillAppear:animated];
      self.navigationController.navigationBarHidden = YES;
     
+    self.imageView.contentMode = UIViewContentModeScaleToFill;
+    self.imageView.layer.cornerRadius = self.imageView.frame.size.width/2;
+    self.imageView.clipsToBounds = YES;
+    
+    if([EssentialWebServiceStore sharedStore].currentMember.profileImage)
+        self.imageView.image = [EssentialWebServiceStore sharedStore].currentMember.profileImage;
+    
+    [self updateUI:nil];
+    
+    self.navigationController.toolbarHidden = NO;
+    
 }
 
 #pragma mark - Table view
@@ -62,7 +88,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return _localDataModels.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -80,10 +106,8 @@
     TrayDataObject *tray = [self.localDataModels objectAtIndex:indexPath.row];
     cell.trayDetailsButton.tag = indexPath.row;
     [cell.trayDetailsButton addTarget:self action:@selector(trayButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    if(tray)
-    {
     [cell configDashBoardCell:tray];
-    }
+    
     return cell;
 }
 
@@ -105,27 +129,27 @@
     self.localDataModels = [[NSMutableArray alloc] init];
     
     TrayDataObject *trayObject = [[TrayDataObject alloc]init];
-    trayObject.detailLabel = @"Milk Products Tray";
+    trayObject.name = @"Milk Products Tray";
     
     NSMutableArray *sections = [[NSMutableArray alloc]init];
     
     TraySectionObject *section1  =[[TraySectionObject alloc]init];
-    section1.sectionDetailLabel = @"Eggs";
-    section1.sectionStatus = @"Full";
+    section1.itemName = @"Eggs";
+    section1.status = @"Full";
     section1.sectionImageView.image = [UIImage imageNamed:@"item_egg_full"];
     
     [sections addObject:section1];
     
     TraySectionObject *section2  =[[TraySectionObject alloc]init];
-    section2.sectionDetailLabel = @"Bread";
-    section2.sectionStatus = @"Low";
+    section2.itemName = @"Bread";
+    section2.status = @"Low";
     section2.sectionImageView.image = [UIImage imageNamed:@"item_bread_low"];
     
     [sections addObject:section2];
     
     TraySectionObject *section3  =[[TraySectionObject alloc]init];
-    section3.sectionDetailLabel = @"Milk";
-    section3.sectionStatus = @"Full";
+    section3.itemName = @"Milk";
+    section3.status = @"Full";
     section3.sectionImageView.image = [UIImage imageNamed:@"item_milk_full"];
     
     [sections addObject:section3];
@@ -135,11 +159,6 @@
     [self.localDataModels addObject:trayObject];
     
 }
-
-
-
-
-
 
  #pragma mark - Navigation
 
@@ -158,4 +177,29 @@
      }
      
  }
+
+
+- (void)updateUI:(NSNotification *)note
+{
+    [[EssentialWebServiceStore sharedStore] getTrayListWithCompletionHandler:^(NSMutableArray *trayObjects, NSError *error) {
+        
+        self.localDataModels = trayObjects;
+        [self.tableView reloadData];
+        
+        [hud hide:YES afterDelay:1];
+        hud = nil;
+    }];
+}
+
+
+#pragma mark Create Tray
+- (void)toolBarButtonClicked:(id)sender
+{
+    UIButton *clickedButton = sender;
+    if(clickedButton.tag == ADD_TRAY_BUTTON_TAG)
+    {
+        NSLog(@"Add tray Btn Clicked ");
+        [self performSegueWithIdentifier:@"CreateTraySegue" sender:sender];
+    }
+}
 @end

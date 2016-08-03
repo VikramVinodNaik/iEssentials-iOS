@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sectionDetailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *setionStatusLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *sectionImageView;
+@property (weak, nonatomic) IBOutlet UILabel *lblSectionName;
 @property (weak, nonatomic) IBOutlet UIButton *sectionEditButton;
 
 // Override this if needed

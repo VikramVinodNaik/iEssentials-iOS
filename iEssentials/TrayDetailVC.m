@@ -10,6 +10,7 @@
 #import "TrayDataObject.h"
 #import "TrayDetailCell.h"
 #import "TraySectionObject.h"
+#import "EditTraySectionVC.h"
 
 @interface TrayDetailVC ()
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -23,17 +24,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-   
-    if(self.trayObject)
-    self.title = self.trayObject.detailLabel;
-    
     
     //Configure Table View Cell
     self.tableView.rowHeight = [TrayDetailCell desiredHeight];
     
     _selectedSectionIndex =-1;
-    _trayImages =[NSArray arrayWithObjects: @"traysection1selected",@"traysection2selected",@"traysection3selected",nil];
+    _trayImages =[NSArray arrayWithObjects: @"traysection2selected",@"traysection3selected",@"traysection1selected",nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +40,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self updateUI:nil];
+    self.navigationController.toolbarHidden = YES;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -89,15 +87,10 @@
                 reuseIdentifier:CellIdentifier];
     }
     
+    [cell configTrayDetailCell:traySection];
+    
     cell.sectionEditButton.tag = indexPath.row;
     [cell.sectionEditButton addTarget:self action:@selector(traySectionEditBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-
-    
-    if(self.trayObject)
-    {
-        [cell configTrayDetailCell:traySection];
-        
-    }
     
     return cell;
 }
@@ -112,27 +105,47 @@
 
 -(void)traySectionEditBtnClicked:(UIButton*)sender
 {
-//    [self performSegueWithIdentifier:@"showTrayDetail" sender:sender];
-    NSLog(@"EditButton Clicked for Section %ld",(long)sender.tag);
+    NSLog(@"EditButton Clicked for row %ld",(long)sender.tag);
     
+    [self performSegueWithIdentifier:@"EditSectionSegue" sender:nil];
 }
 
 #pragma mark - Navigation
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    
-//    
-//    if ([[segue identifier] isEqualToString:@"showTrayDetail"]) {
-//        UIButton *senderClkdButton = sender;
-//        TrayDataObject *tray = [self.localDataModels objectAtIndex:senderClkdButton.tag];
-//        if(tray)
-//        {
-//            TrayDetailVC *dest = [segue destinationViewController];
-//            dest.trayObject = tray;
-//        }
-//        
-//    }
-//    
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    
+    if ([[segue identifier] isEqualToString:@"EditSectionSegue"]) {
+        
+        TraySectionObject *traySection = [self.trayObject.sections objectAtIndex:_selectedSectionIndex];
+        
+        EditTraySectionVC *dest = [segue destinationViewController];
+        dest.section = traySection;
+    }
+    
+}
+
+#pragma mark - AUto UI Updates
+- (void)updateUI:(NSNotification *)note
+{
+    NSLog(@"Base Class updateUI");
+    
+    [[EssentialWebServiceStore sharedStore] getTrayListWithCompletionHandler:^(NSMutableArray *trayObjects, NSError *error) {
+        
+        for (TrayDataObject *t in trayObjects) {
+            
+            if(t.trayId == self.trayObject.trayId)
+            {
+                self.trayObject = t;
+                break;
+            }
+        }
+
+        if(self.trayObject)
+            self.title = self.trayObject.name;
+        
+        [self.tableView reloadData];
+    }];
+}
 
 @end

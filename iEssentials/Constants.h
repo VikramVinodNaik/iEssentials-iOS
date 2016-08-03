@@ -25,3 +25,8 @@
 #define LOGIN_FORGOT_PASSWORD_TEXT   @"Forgot Password?"
 #define LOGIN_REMEMBER_TEXT   @"Remember Me"
 #define LOADING_TEXT   @"Loading..."
+
+#define CAMERA_BUTTON_TAG 100
+#define ADD_TRAY_BUTTON_TAG 101
+#define CART_BUTTON_TAG 102
+#define SAVE_TRAY_BUTTON_TAG 103

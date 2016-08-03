@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "__52-[EssentialWebServiceStore updateMember:completion:]_block_invoke147:EssentialWebServiceStore.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[EssentialMemberObject readFromJSONDictionary:]:EssentialMemberObject.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[AccountSettingVC toolBarButtonClicked:]:AccountSettingVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "__52-[EssentialWebServiceStore updateMember:completion:]_block_invoke:EssentialWebServiceStore.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

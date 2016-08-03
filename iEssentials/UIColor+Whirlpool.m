@@ -112,4 +112,28 @@
                             blue:((float) b / 255.0f)
                            alpha:1.0f];
 }
+
+
++ (UIColor *)whirlpoolColorForStatus:(NSString *)status
+{
+    if([status isEqualToString:@"Empty"])
+    {
+        return [UIColor whirlpoolRedColor];
+    }else if ([status isEqualToString:@"Low"])
+    {
+        return [UIColor whirlpoolOrangeColor];
+    }else if ([status isEqualToString:@"Medium"])
+    {
+        return [UIColor whirlpoolYellowColor];
+    }else if ([status isEqualToString:@"High"])
+    {
+        return [UIColor whirlpoolGreenColor];
+    }else if ([status isEqualToString:@"Full"])
+    {
+        return [UIColor whirlpoolGreenColor];
+    }else
+    {
+        return [UIColor whirlpoolDarkGrayColor];
+    }
+}
 @end

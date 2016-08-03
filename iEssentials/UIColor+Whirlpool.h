@@ -18,5 +18,5 @@
 + (UIColor *)whirlpoolBlueBorderColor;
 +(UIColor*)colorWithHexString:(NSString*)hex;
 + (UIColor *)whirlpoolToolBarColor;
-
++ (UIColor *)whirlpoolColorForStatus:(NSString *)status;
 @end

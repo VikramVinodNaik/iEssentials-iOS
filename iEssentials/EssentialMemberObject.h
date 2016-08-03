@@ -13,7 +13,9 @@
 
 @property (nonatomic, copy) NSString *username;
 @property (nonatomic, copy) NSString *password;
-@property (nonatomic, copy) NSNumber *memberID;
+@property (nonatomic) long memberID;
 @property (nonatomic, copy) NSString *phoneNumber;
+@property (nonatomic, copy) UIImage *profileImage;
+-(NSString *)getPlainPhoneNumber;
 
 @end

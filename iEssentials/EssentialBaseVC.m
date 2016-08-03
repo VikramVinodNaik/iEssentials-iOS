@@ -10,13 +10,6 @@
 #import "AppDelegate.h"
 
 
-#define CAMERA_BUTTON_TAG 100
-#define ADD_TRAY_BUTTON_TAG 101
-#define CART_BUTTON_TAG 102
-#define SAVE_TRAY_BUTTON_TAG 103
-
-
-
 @interface EssentialBaseVC ()
 
 @end
@@ -32,6 +25,14 @@
     
     [self setUpDefaultToolBar];
     
+    [self.navigationController.toolbar setBarTintColor:[UIColor whirlpoolToolBarColor]];
+    
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self
+           selector:@selector(updateUI:)
+               name:WPWISEStoreDidRegisterForAPNNotification
+             object:nil];
 }
 
 
@@ -48,6 +49,12 @@
         UIImage *image = [UIImage imageNamed:@"navbarbgimage"];
         [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     }
+    
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    NSNotification *note = [NSNotification notificationWithName:WPWISEStoreDidRegisterForAPNNotification
+                                                         object:nil
+                                                       userInfo:nil];
+    [defaultCenter postNotification:note];
 }
 
 
@@ -62,7 +69,6 @@
     
     self.navigationController.toolbarHidden=NO;
     self.navigationController.navigationBarHidden = NO;
-    [self.navigationController.toolbar setBarTintColor:[UIColor whirlpoolToolBarColor]];
     
     UIBarButtonItem *flexiableItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     
@@ -121,6 +127,57 @@
     
 }
 
+
+-(void)setUpSaveBtnToolBar
+{
+    
+    self.navigationController.toolbarHidden=NO;
+    self.navigationController.navigationBarHidden = NO;
+    UIBarButtonItem *flexiableItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIButton *saveButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    saveButton.tag = SAVE_TRAY_BUTTON_TAG;
+    [saveButton addTarget:self action:@selector(toolBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside]; //adding action
+    
+    [saveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [saveButton setTitle:@"Save" forState:UIControlStateNormal];
+    
+    CGRect frame = self.navigationController.toolbar.frame;
+    saveButton.frame = CGRectMake(0 ,0,frame.size.width,frame.size.height);
+    [saveButton.titleLabel setFont:[UIFont whirlpoolB1Font]];
+    UIBarButtonItem *toolBarButtonSaveTray = [[UIBarButtonItem alloc] initWithCustomView:saveButton];
+    
+    NSArray *items = [NSArray arrayWithObjects:flexiableItem, toolBarButtonSaveTray,flexiableItem, nil];
+    
+    [self setToolbarItems:items animated:YES];
+    
+    
+}
+
+-(void)setUpCreateBtnToolBar
+{
+    
+    self.navigationController.toolbarHidden=NO;
+    self.navigationController.navigationBarHidden = NO;
+    UIBarButtonItem *flexiableItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIButton *saveButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    saveButton.tag = SAVE_TRAY_BUTTON_TAG;
+    [saveButton addTarget:self action:@selector(toolBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside]; //adding action
+    
+    [saveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [saveButton setTitle:@"Create" forState:UIControlStateNormal];
+    
+    CGRect frame = self.navigationController.toolbar.frame;
+    saveButton.frame = CGRectMake(0 ,0,frame.size.width,frame.size.height);
+    [saveButton.titleLabel setFont:[UIFont whirlpoolB1Font]];
+    UIBarButtonItem *toolBarButtonSaveTray = [[UIBarButtonItem alloc] initWithCustomView:saveButton];
+    
+    NSArray *items = [NSArray arrayWithObjects:flexiableItem, toolBarButtonSaveTray,flexiableItem, nil];
+    
+    [self setToolbarItems:items animated:YES];
+    
+    
+}
+
 -(void)setUpAddTrayToolBar
 {
     
@@ -135,7 +192,6 @@
     }if(clickedButton.tag == ADD_TRAY_BUTTON_TAG)
     {
         NSLog(@"Add tray Btn Clicked ");
-        
     }
     else if(clickedButton.tag == CART_BUTTON_TAG)
     {
@@ -144,10 +200,17 @@
     }else if(clickedButton.tag == SAVE_TRAY_BUTTON_TAG)
     {
         NSLog(@"Save tray Btn Clicked ");
-        
     }
-
-
 }
 
+//Override in Child VC
+- (void)updateUI:(NSNotification *)note
+{
+    NSLog(@"Base Class updateUI");
+}
+
+-(void)logout
+{
+    [self.navigationController popToRootViewControllerAnimated:NO];
+}
 @end

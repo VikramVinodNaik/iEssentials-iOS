@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "EssentialMemberObject.h"
-
+#import "TrayDataObject.h"
+#import "TraySectionObject.h"
 
 // Notifications
 extern NSString * const WPReachabilityChangedNotification;
@@ -25,5 +26,13 @@ extern NSString * const WPReachabilityChangedNotification;
               password:(NSString *)password
             completion:(void (^)(EssentialMemberObject *member, NSError *error))completionHandler;
 
+- (void)updateMember:(EssentialMemberObject *)member completion:(void (^)(EssentialMemberObject *member, NSError *error))completionHandler;
+- (void)saveDeviceTokenForCurrentUser:(NSData *)deviceToken;
+- (void)createMember:(EssentialMemberObject *)member completion:(void (^)(EssentialMemberObject *member, NSError *error))completionHandler;
+
+- (void)getTrayListWithCompletionHandler:(void (^)(NSMutableArray *trayObjects, NSError *error))completionHandler;
+
+- (void)updateSection:(TraySectionObject *)section completion:(void (^)(TraySectionObject *section, NSError *error))completionHandler;
+- (void)createTray:(NSString *)trayName SectionsDict:(NSDictionary *)sections completion:(void (^)(TrayDataObject *tray, NSError *error))completionHandler;
 
 @end
